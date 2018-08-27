@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'tapboxa.dart';
 
 void main() {
   // debugPaintSizeEnabled = true;
@@ -13,6 +14,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
+  /*
   @override
   Widget build(BuildContext context) {
     Widget titleSection = Container(
@@ -109,6 +111,20 @@ Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese Alps. Situate
       ),
     );
   }
+*/
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Flutter Demo'),
+        ),
+        body: Center(child: TapboxA()),
+      ),
+    );
+  }
 }
 
 class FavoriteWidget extends StatefulWidget {
@@ -135,27 +151,23 @@ class _FavoriteWidgetState extends State<FavoriteWidget> {
   }
 
   @override
-    Widget build(BuildContext context) {
-      return Row(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          Container(
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        Container(
             padding: EdgeInsets.all(0.0),
             child: IconButton(
-              icon: (_isFavorited
-                ? Icon(Icons.star)
-                : Icon(Icons.star_border)),
+              icon: (_isFavorited ? Icon(Icons.star) : Icon(Icons.star_border)),
               color: Colors.red[500],
               onPressed: _toggleFavorite,
-            )
-          ),
-          SizedBox(
+            )),
+        SizedBox(
             width: 18.0,
             child: Container(
               child: Text('$_favoriteCount'),
-            )
-          ),
-        ],
-      );
-    }
+            )),
+      ],
+    );
+  }
 }
